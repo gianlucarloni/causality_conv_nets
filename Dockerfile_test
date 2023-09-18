@@ -1,0 +1,2 @@
+FROM gianlucacarloni/conv:train_convnet
+ENTRYPOINT [ "python", "./test_convnet.py"]
