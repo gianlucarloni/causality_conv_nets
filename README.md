@@ -11,11 +11,21 @@ For instance, if two objects/artifacts _A_ and _B_ are present in the images, we
 
 <img src="./car_bridge.png" width=200 height=200>
 
-**Intuition**: any causal disposition induces a set of conditional asymmetries between the artifacts from an image (features, object categories, etc.) that represent (weak) causality signals regarding the real-world scene. --> Can computer vision models infer such asymmetries autonomously?
+**Intuition**: any causal disposition induces a set of conditional asymmetries between the artifacts from an image (features, object categories, etc.) that represent (weak) causality signals regarding the real-world scene. **Can computer vision models infer such asymmetries autonomously?**
 
 [Terziyan and Vitko (2023)](https://www.sciencedirect.com/science/article/pii/S1877050922023237) suggests a way to compute estimates for possible causal relationships within images via CNNs. 
 When a feature map $F^i$ contains only non-negative numbers (e.g., thanks to ReLU functions) and is normalized in the interval $[0,1]$, we can interpret its values as probabilities of that feature to be present in a specific location. For instance, $F^i_{r,c}$ is the probability that the feature $i$ is recognized at coordinates ${r,c}$.
 By assuming that the last convolutional layer outputs and localizes to some extent the object-like features, we may modify the architecture of a CNN such that the $n \times n$ feature maps ($F^1,F^2,\dots F^k$) obtained from that layer got fed into a new module that computes pairwise conditional probabilities of the feature maps. The resulting $k \times k$ map would represent the causality estimates for the features and be called **causality map**. 
+
+Given a pair of feature maps $F^i$ and $F^j$ and the formulation that connects conditional probability with joint probability, $P(F^i|F^j) = \frac{P(F^i,F^j)}{P(F^j)}$, the authors suggest to heuristically estimate this quantity by adopting two possible methods, namely \textit{Max} and \textit{Lehmer}.
+The _Max_ method considers the joint probability to be the maximal presence of both features in the image (each one in its location):
+    $P(F^i|F^j) = \frac{(\max_{r,c} F^i_{r,c})\cdot (\max_{r,c} F^j_{r,c})}{\sum_{r,c} F^j_{r,c}}$
+On the other hand, _Lehmer_ method entails computing 
+    $P(F^i|F^j)_p = \frac{LM_p(F^i \times F^j)}{LM_p(F^j)}$
+ 
+where $F^i \times F^j$ is a vector of $n^4$ pairwise multiplications between each element of the two $n \times n$ feature maps, while $LM_p$ is the generalized Lehmer mean function \citep{bullen2003handbook} with parameter $p$, which is an alternative to power means for interpolating between minimum and maximum of a vector $x$ via harmonic mean ($p=-2$), geometric mean ($p=-1$), arithmetic mean ($p=0$), and contraharmonic mean ($p=1$):
+$LM_p(x) = \frac{\sum_{k=1}^n x_k^p}{\sum_{k=1}^n x_k^{p-1}}$.
+These equations could be used to estimate asymmetric causal relationships between features $F^i$ and $F^j$, since, in general, $P(F^i|F^j) \neq P(F^j|F^i)$. By computing these quantities for every pair $i$ and $j$ of the $k$ feature maps, the $k \times k$ causality map is obtained. We interpret asymmetries in such probability estimates as weak causality signals between features, as they provide some information on the cause-effect of the appearance of a feature in one place of the image, given the presence of another feature within some other places of the image. Accordingly, a feature may be deemed to be the reason for another feature when $P(F^i|F^j) > P(F^j|F^i)$, that is ($F^i \rightarrow F^j$), and vice versa. 
 
 
 ## Get started 
