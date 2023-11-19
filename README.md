@@ -23,11 +23,16 @@ The _Max_ method considers the joint probability to be the maximal presence of b
 On the other hand, _Lehmer_ method entails computing 
     $P(F^i|F^j)_p = \frac{LM_p(F^i \times F^j)}{LM_p(F^j)}$
  
-where $F^i \times F^j$ is a vector of $n^4$ pairwise multiplications between each element of the two $n \times n$ feature maps, while $LM_p$ is the generalized Lehmer mean function \citep{bullen2003handbook} with parameter $p$, which is an alternative to power means for interpolating between minimum and maximum of a vector $x$ via harmonic mean ($p=-2$), geometric mean ($p=-1$), arithmetic mean ($p=0$), and contraharmonic mean ($p=1$):
+where $F^i \times F^j$ is a vector of $n^4$ pairwise multiplications between each element of the two $n \times n$ feature maps, while $LM_p$ is the generalized Lehmer mean function with parameter $p$, which is an alternative to power means for interpolating between minimum and maximum of a vector $x$ via harmonic mean ($p=-2$), geometric mean ($p=-1$), arithmetic mean ($p=0$), and contraharmonic mean ($p=1$):
 $LM_p(x) = \frac{\sum_{k=1}^n x_k^p}{\sum_{k=1}^n x_k^{p-1}}$.
 These equations could be used to estimate asymmetric causal relationships between features $F^i$ and $F^j$, since, in general, $P(F^i|F^j) \neq P(F^j|F^i)$. By computing these quantities for every pair $i$ and $j$ of the $k$ feature maps, the $k \times k$ causality map is obtained. We interpret asymmetries in such probability estimates as weak causality signals between features, as they provide some information on the cause-effect of the appearance of a feature in one place of the image, given the presence of another feature within some other places of the image. Accordingly, a feature may be deemed to be the reason for another feature when $P(F^i|F^j) > P(F^j|F^i)$, that is ($F^i \rightarrow F^j$), and vice versa. 
 
 <img src="./figure_cmap_visual_letters-1.png">
+
+We propose a new light-weight module - **causality factors extractor** - to compute weights for the feature maps. Specifically, we propose two new schemes, namely **Mulcat** and **Mulcatbool**, to embed causal information to CNNs.
+
+Instead of concatenating the flattened causality map to the flattened set of feature maps just before the classifier as [Terziyan and Vitko (2023)](https://www.sciencedirect.com/science/article/pii/S1877050922023237), here we propose to use the causality map to compute a vector of causality factors that multiply (i.e., weighs) the feature maps so that each feature map is strengthened according to its causal influence within the image's scene. 
+After multiplication, the obtained causality-driven version of the feature maps is flattened and concatenated to the flattened original ones, producing a $2 \times n\times n \times k$ input to the classifier.
 
 ## Get started 
 
