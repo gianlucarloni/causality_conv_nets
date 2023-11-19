@@ -27,7 +27,7 @@ where $F^i \times F^j$ is a vector of $n^4$ pairwise multiplications between eac
 $LM_p(x) = \frac{\sum_{k=1}^n x_k^p}{\sum_{k=1}^n x_k^{p-1}}$.
 These equations could be used to estimate asymmetric causal relationships between features $F^i$ and $F^j$, since, in general, $P(F^i|F^j) \neq P(F^j|F^i)$. By computing these quantities for every pair $i$ and $j$ of the $k$ feature maps, the $k \times k$ causality map is obtained. We interpret asymmetries in such probability estimates as weak causality signals between features, as they provide some information on the cause-effect of the appearance of a feature in one place of the image, given the presence of another feature within some other places of the image. Accordingly, a feature may be deemed to be the reason for another feature when $P(F^i|F^j) > P(F^j|F^i)$, that is ($F^i \rightarrow F^j$), and vice versa. 
 
-<img src="./figure_cmap_visual_letters-1.png" width=200 height=200>
+<img src="./figure_cmap_visual_letters-1.png">
 
 ## Get started 
 
