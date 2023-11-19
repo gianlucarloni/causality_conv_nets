@@ -34,6 +34,9 @@ We propose a new light-weight module - **causality factors extractor** - to comp
 Instead of concatenating the flattened causality map to the flattened set of feature maps just before the classifier as [Terziyan and Vitko (2023)](https://www.sciencedirect.com/science/article/pii/S1877050922023237), here we propose to use the causality map to compute a vector of causality factors that multiply (i.e., weighs) the feature maps so that each feature map is strengthened according to its causal influence within the image's scene. 
 After multiplication, the obtained causality-driven version of the feature maps is flattened and concatenated to the flattened original ones, producing a $2 \times n\times n \times k$ input to the classifier.
 
+<img src="./figure_overview_ESWA-1.png">
+
+
 ## Get started 
 
 ...
