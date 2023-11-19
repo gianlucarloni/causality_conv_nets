@@ -13,6 +13,9 @@ For instance, if two objects/artifacts _A_ and _B_ are present in the images, we
   <img src="./car_bridge.png">
 </p>
 
+Intuition: any causal disposition induces a set of conditional asymmetries between the artifacts from an image (features, object categories, etc.) that represent (weak) causality signals regarding the real-world scene.
+![image](https://github.com/gianlucarloni/causality_conv_nets/assets/91902479/24b129b3-a13a-4719-9c18-af897a08677f)
+
 
 ## Get started 
 
