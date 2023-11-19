@@ -36,7 +36,7 @@ After multiplication, the obtained causality-driven version of the feature maps 
 
 <img src="./figure_overview_ESWA-1.png">
 
-At the core of the \textbf{mulcat} option stands our \textit{causality factors extractor} module, which yields the vector of weights needed to multiply the feature maps. The main idea here is to look for asymmetries between elements opposite the main diagonal of the causality map, as they represent conditional asymmetries entailing possible cause-effect relationships. Indeed, some features may be more often found on the left side of the arrow (i.e., $F\rightarrow$) than on the right side (i.e., $\rightarrow F$). 
+At the core of the **mulcat** option stands our **causality factors extractor** module, which yields the vector of weights needed to multiply the feature maps. The main idea here is to look for asymmetries between elements opposite the main diagonal of the causality map, as they represent conditional asymmetries entailing possible cause-effect relationships. Indeed, some features may be more often found on the left side of the arrow (i.e., $F\rightarrow$) than on the right side (i.e., $\rightarrow F$). 
 
 <img src="./figure2_causalityfactorextractor-1.png">
 
