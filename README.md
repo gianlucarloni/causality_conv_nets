@@ -9,7 +9,8 @@ The rationale behind the whole project is the concept of _causal disposition_ fr
 Given an image dataset, we can have insights into observable footprints that reveal the dispositions of the object categories appearing in the images.
 For instance, if two objects/artifacts _A_ and _B_ are present in the images, we can define the causal disposition of _A_ w.r.t. _B_ by counting the number of images in the dataset where if we remove _A_ then _B_ also disappear.
 
-![Car bridge](car_bridge.png)
+<img src="car_bridge.png" width="200" />
+
 ## Get started 
 
 ...
