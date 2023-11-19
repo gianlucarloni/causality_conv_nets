@@ -1,6 +1,7 @@
 # causality_conv_nets
 This is repository contains the code to experiment with our framework of Causality-driven Convolutional Neural Networks.
-[**Conference Paper**](https://openaccess.thecvf.com/content/ICCV2023W/CVAMD/html/Carloni_Causality-Driven_One-Shot_Learning_for_Prostate_Cancer_Grading_from_MRI_ICCVW_2023_paper.html) [**Journal Paper**](https://arxiv.org/abs/2309.10399)
+
+[[**Conference Paper**](https://openaccess.thecvf.com/content/ICCV2023W/CVAMD/html/Carloni_Causality-Driven_One-Shot_Learning_for_Prostate_Cancer_Grading_from_MRI_ICCVW_2023_paper.html)] [[**Journal Paper**](https://arxiv.org/abs/2309.10399)]
 
 ## Main idea and related work
 
