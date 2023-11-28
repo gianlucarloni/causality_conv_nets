@@ -49,8 +49,6 @@ In this project, we have utilized Docker to run our experiments on a multi-GPU c
 
 ## Option A) Run it with Docker
 
-...
-
 ### Build the Docker Image
 
 To make things easier and tidier, we'll build two separate docker images: one for the training experiments ([Dockerfile](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile)) and the other for the test/inference execution ([Dockerfile_test](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile_test)). As you can see, they both inherit (i.e., "FROM" command) the "nvcr.io/nvidia/pytorch" image. In addition, they optionally 'pip install' some packages such as 'tqdm, einops, seaborn, scikit-learn' in the "RUN" command, and, finally, specify the correct "ENTRYPOINT" for the container.
@@ -66,4 +64,4 @@ That bash script ultimately executes the 'docker run' command on the training do
 
 ## Option B) Run it on your local machine without Docker
 
-...
+... to be continued
