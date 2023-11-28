@@ -43,6 +43,24 @@ At the core of the **mulcat** option stands our **causality factors extractor** 
 <img src="./images/causalityfactorextractor.png" width=800>
 
 
-## Get started 
+# Get started 
+
+In this project, we have utilized Docker to run our experiments on a multi-GPU cluster at our Institute. Therefore, you'll find side files to assist in the launching of the experiments, such as the 'docker_run_[].sh' bash scripts and the 'Dockerfile' files. If you're used to utilizing Docker too, then simply build your Image and Container following our instructions. Instead, if you want to execute the framework on your local machine without any Docker, just install the required dependencies and packages as shown below.
+
+## Option A) Run it with Docker
+
+...
+
+### Build the Docker Image
+
+To make things easier and tidier, we'll build two separate docker images: one for the training experiments ([Dockerfile](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile)) and the other for the test/inference execution ([Dockerfile_test](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile_test)). As you can see, they both inherit (i.e., "FROM" command) the "nvcr.io/nvidia/pytorch" image. In addition, they optionally 'pip install' some packages such as 'tqdm, einops, seaborn, scikit-learn' in the "RUN" command, and, finally, specify the correct "ENTRYPOINT" for the container.
+
+Log in to your Docker and build two images with the above-mentioned Dockerfiles. Use a meaningful tag for them.
+
+### Prepare the docker_run launching script in bash
+
+...
+
+## Option B) Run it on your local machine without Docker
 
 ...
