@@ -27,7 +27,7 @@ The _Max_ method considers the joint probability to be the maximal presence of b
 On the other hand, _Lehmer_ method entails computing $P(F^i|F^j)\_p = \frac{LM_p(F^i \times F^j)}{LM_p(F^j)}$ , where $F^i \times F^j$ is a vector of $n^4$ pairwise multiplications between each element of the two $n \times n$ feature maps, while $LM_p$ is the generalized Lehmer mean function with parameter $p$: $LM_p(x) = \frac{\sum_{k=1}^n x_k^p}{\sum_{k=1}^n x_k^{p-1}}$.
 These equations could be used to estimate asymmetric causal relationships between features $F^i$ and $F^j$, since, in general, $P(F^i|F^j) \neq P(F^j|F^i)$. By computing these quantities for every pair $i$ and $j$ of the $k$ feature maps, the $k \times k$ causality map is obtained. We interpret asymmetries in such probability estimates as **weak causal signals between features**, as they provide some information on the cause-effect of the appearance of a feature in one place of the image, given the presence of another feature within some other places of the image. Accordingly, a feature may be deemed to be the reason for another feature when $P(F^i|F^j) > P(F^j|F^i)$, that is ($F^i \rightarrow F^j$), and vice versa. The below figure shows a zoom-in of a sample causality map computed on $512$ feature maps extracted from an input image, where dashed circles indicate exemplar elements and their corresponding elements opposite the main diagonal, representing conditional asymmetries. We can see that, for instance, $P(F^{25}|F^{13}) > P(F^{13}|F^{25})$, that is $F^{25} \rightarrow F^{13}$, and $P(F^{45}|F^{40}) > P(F^{40}|F^{45})$, that is $F^{45} \rightarrow F^{40}$.
 
-<img src="./images/cmap_visual_letters.png" width=800>
+<img src="./images/cmap_visual_letters.png" width=600>
 
 ## Our method
 
@@ -36,11 +36,11 @@ We propose a new lightweight module - **causality factors extractor** - to compu
 Instead of concatenating the flattened causality map to the flattened set of feature maps just before the classifier as in Terziyan and Vitko (2023), here we propose to use the causality map to compute a vector of causality factors that multiply (i.e., weighs) the feature maps so that each feature map is strengthened according to its causal influence within the image's scene. 
 After multiplication, the obtained causality-driven version of the feature maps is flattened and concatenated to the flattened original ones, producing a $2 \times n\times n \times k$ input to the classifier.
 
-<img src="./images/overview_ESWA.png" width=800>
+<img src="./images/overview_ESWA.png" width=600>
 
 At the core of the **mulcat** option stands our **causality factors extractor** module, which yields the vector of weights needed to multiply the feature maps. The main idea here is to look for asymmetries between elements opposite the main diagonal of the causality map, as they represent conditional asymmetries entailing possible cause-effect relationships. Indeed, some features may be more often found on the left side of the arrow (i.e., $F\rightarrow$) than on the right side (i.e., $\rightarrow F$). 
 
-<img src="./images/causalityfactorextractor.png" width=800>
+<img src="./images/causalityfactorextractor.png" width=600>
 
 
 # Get started 
@@ -59,7 +59,10 @@ Log in to your Docker and build two images with the above-mentioned Dockerfiles.
 
 ### Prepare the docker_run launching script in bash
 
-...
+The 'docker_run_loop_inner.sh' bash script is used to run the causality-driven and baseline versions of the networks with a hyperparameters optimization in a loop. The loop itself is actually performed within the python script itself, but here in the bash script, you must specify the lists of possible hyperparameter values.
+
+That bash script ultimately executes the 'docker run' command on the training docker image built at the previous step. Please, follow the instructions contained in that bash script to customise it and to set everything you need about the GPU device(s), accordingly to your system setup.
+
 
 ## Option B) Run it on your local machine without Docker
 
