@@ -1,2 +1,2 @@
-FROM gianlucacarloni/conv:train_convnet
-ENTRYPOINT [ "python", "./test_convnet.py"]
+FROM gianlucacarloni/conv:train_convnet_loop_inner_B2
+ENTRYPOINT [ "python", "./test_convnet_ESWA.py"]
