@@ -65,3 +65,17 @@ That bash script ultimately executes the 'docker run' command on the training do
 ## Option B) Run it on your local machine without Docker
 
 ... to be continued
+
+# Once you finish training
+
+Upon completion of the model's training, you will obtain a new folder with the training results. See the screenshot below for a visual example:
+
+<img src="./images/folder_structure_github_convnets.png" width=600>
+
+where _caumps_ will contain the causality maps obtained during validation epochs (in numpy format), _ftrmps_ will contain the feature maps extracted from the hooked inner layers of the network during validation epochs (in numpy format), and _orgimg_ optionally contains a sample of the input validation images onto which feature maps and causality maps are extracted. 
+
+According to the models' saving policy, you will find _.pth_ files for the Top-_k_ best-performing models obtained during training. As of now, the saving policy is set to the Top-3 models, and the metric defining the best performers is a lower loss on the validation set. You can modify the saving policy and the metric at your ease. 
+
+To facilitate model tracking, during the whole training process, a Tensorboard _events.out.tfevents._ object is stored. It will keep track of relevant curves and metrics during the epochs, to conveniently visualize them. You may follow the 'tutorial' in the next subsection to know how to use TensorboardX events.
+
+## Utilizing Tensorboard and TensorboardX to visualize the _events_ file
