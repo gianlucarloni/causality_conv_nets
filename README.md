@@ -79,3 +79,9 @@ According to the models' saving policy, you will find _.pth_ files for the Top-_
 To facilitate model tracking, during the whole training process, a Tensorboard _events.out.tfevents._ object is stored. It will keep track of relevant curves and metrics during the epochs, to conveniently visualize them. You may follow the 'tutorial' in the next subsection to know how to use TensorboardX events.
 
 ## Utilizing Tensorboard and TensorboardX to visualize the _events_ file
+
+1) On your local machine, create a new conda environment with _torch_ 2.0, _tensorboard_ 2.13, _tensorboardX_ 2.6.1. For the latter, you could just 'pip install tensorboardX', refer to the [official page]( https://pypi.org/project/tensorboardX/).
+2) In a shell, locate (_cd_) the result folder obtained after training (which contains the _events.out.tfevents._ file)
+3) Type the command: 'tensorboard --logdir .  --port 6001'. That will prompt you with a URL link, just CTRL+click on it, and a browser page will open.
+   **Important** IN CASE THAT COMMAND DID NOT WORK (i.e., the link opens an error page), try the command: 'tensorboard --logdir . --host localhost  --port 8088'.
+   
