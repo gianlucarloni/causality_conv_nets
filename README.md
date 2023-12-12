@@ -85,3 +85,17 @@ To facilitate model tracking, during the whole training process, a Tensorboard _
 3) Type the command: 'tensorboard --logdir .  --port 6001'. That will prompt you with a URL link, just CTRL+click on it, and a browser page will open.
    **Important** IN CASE THAT COMMAND DID NOT WORK (i.e., the link opens an error page), try the command: 'tensorboard --logdir . --host localhost  --port 8088'.
    
+# Cite
+
+Please cite our [paper](https://arxiv.org/pdf/2309.10399.pdf) if you found this code useful for your research:
+
+```
+@misc{carloni2023exploiting,
+      title={Exploiting Causality Signals in Medical Images: A Pilot Study with Empirical Results}, 
+      author={Gianluca Carloni and Sara Colantonio},
+      year={2023},
+      eprint={2309.10399},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
