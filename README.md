@@ -1,9 +1,10 @@
-This repository contains the code to experiment with our framework of Causality-driven Convolutional Neural Networks.
+This repository contains the code to experiment with our framework of **Causality-driven Convolutional Neural Networks**:
 
 [[**ESWA 2024** (Journal paper)](https://doi.org/10.1016/j.eswa.2024.123433)]
 [[**ICCV 2023** (Conference paper)](https://openaccess.thecvf.com/content/ICCV2023W/CVAMD/html/Carloni_Causality-Driven_One-Shot_Learning_for_Prostate_Cancer_Grading_from_MRI_ICCVW_2023_paper.html)]
 
-To read about the rationale behind the investigation, please have a look at the following section.
+## Summary
+We present a new plug-in attention-inspired module to discover and exploit weak causal signals directly from images via neural networks for improving CNN classifiers. We model how the presence of a feature in one part of the image affects the appearance of another feature in a different part of the image. Our **Mulcat** method consists of a CNN backbone and a **causality-factors extractor** module, which computes weights to enhance each feature map according to its causal influence in the scene. We demonstrated the effectiveness of our method both in fully-supervised and few-shot learning and for different medical image classification tasks. Our lightweight block is architecture-independent and easy to add to existing convolutional models, including attention-based solutions, where it enables synergy. With this method, the overall classification performance can be increased and more robust predictions (which focus on relevant parts of the image) are produced.
 
 To [**Get Started**](https://github.com/gianlucarloni/causality_conv_nets/tree/main#get-started) with the coding, just skip to the section at the bottom!
 
