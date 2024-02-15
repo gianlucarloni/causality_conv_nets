@@ -1,10 +1,11 @@
 This repository contains the code to experiment with our framework of Causality-driven Convolutional Neural Networks.
 
-[[**Journal Paper** (pre-print version)](https://arxiv.org/abs/2309.10399v3)]
-[[**ICCV 2023** (conference paper)](https://openaccess.thecvf.com/content/ICCV2023W/CVAMD/html/Carloni_Causality-Driven_One-Shot_Learning_for_Prostate_Cancer_Grading_from_MRI_ICCVW_2023_paper.html)]
+[[**ESWA 2024** (Journal paper)](https://doi.org/10.1016/j.eswa.2024.123433)]
+[[**ICCV 2023** (Conference paper)](https://openaccess.thecvf.com/content/ICCV2023W/CVAMD/html/Carloni_Causality-Driven_One-Shot_Learning_for_Prostate_Cancer_Grading_from_MRI_ICCVW_2023_paper.html)]
 
 To read about the rationale behind the investigation, please have a look at the following section.
-Instead, to [**Get Started**](https://github.com/gianlucarloni/causality_conv_nets/tree/main#get-started) with the coding, just skip to the section at the bottom!
+
+To [**Get Started**](https://github.com/gianlucarloni/causality_conv_nets/tree/main#get-started) with the coding, just skip to the section at the bottom!
 
 # Main idea and related work
 
@@ -45,28 +46,21 @@ At the core of the **mulcat** option stands our **causality factors extractor** 
 
 # Get started 
 
-In this project, we have utilized Docker to run our experiments on a multi-GPU cluster at our Institute. Therefore, you'll find side files to assist in the launching of the experiments, such as the 'docker_run_[].sh' bash scripts and the 'Dockerfile' files. If you're used to utilizing Docker too, then simply build your Image and Container following our instructions. Instead, if you want to execute the framework on your local machine without any Docker, just install the required dependencies and packages as shown below.
+In this project, we have utilized Docker to run our experiments on a multi-GPU cluster at our Institute. Therefore, you'll find side files to assist in the launching of the experiments, such as the 'docker_run_[].sh' bash scripts and the 'Dockerfile' files. If you're used to utilizing Docker too, then simply build your Image and Container following our instructions. Instead, if you want to execute the framework on your local machine without any Docker, just install the required dependencies and packages.
 
-## Option A) Run it with Docker
-
-### Build the Docker Image
+## Build the Docker Image
 
 To make things easier and tidier, we'll build two separate docker images: one for the training experiments ([Dockerfile](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile)) and the other for the test/inference execution ([Dockerfile_test](https://github.com/gianlucarloni/causality_conv_nets/blob/main/Dockerfile_test)). As you can see, they both inherit (i.e., "FROM" command) the "nvcr.io/nvidia/pytorch" image. In addition, they optionally 'pip install' some packages such as 'tqdm, einops, seaborn, scikit-learn' in the "RUN" command, and, finally, specify the correct "ENTRYPOINT" for the container.
 
 Log in to your Docker and build two images with the above-mentioned Dockerfiles. Use a meaningful tag for them.
 
-### Prepare the docker_run launching script in bash
+## Prepare the docker_run launching script in bash
 
 The 'docker_run_loop_inner.sh' bash script is used to run the causality-driven and baseline versions of the networks with a hyperparameters optimization in a loop. The loop itself is actually performed within the python script itself, but here in the bash script, you must specify the lists of possible hyperparameter values.
 
 That bash script ultimately executes the 'docker run' command on the training docker image built at the previous step. Please, follow the instructions contained in that bash script to customise it and to set everything you need about the GPU device(s), accordingly to your system setup.
 
-
-## Option B) Run it on your local machine without Docker
-
-... to be continued
-
-# Once you finish training
+## Once you finish training
 
 Upon completion of the model's training, you will obtain a new folder with the training results. See the screenshot below for a visual example:
 
@@ -87,7 +81,7 @@ To facilitate model tracking, during the whole training process, a Tensorboard _
    
 # Cite
 
-Please cite our [paper](https://arxiv.org/pdf/2309.10399.pdf) if you found this code useful for your research:
+Please cite our [paper](https://doi.org/10.1016/j.eswa.2024.123433) if you found this code useful for your research:
 
 ```
 @misc{carloni2023exploiting,
