@@ -85,12 +85,12 @@ To facilitate model tracking, during the whole training process, a Tensorboard _
 Please cite our [paper](https://doi.org/10.1016/j.eswa.2024.123433) if you found this code useful for your research:
 
 ```
-@misc{carloni2023exploiting,
-      title={Exploiting Causality Signals in Medical Images: A Pilot Study with Empirical Results}, 
-      author={Gianluca Carloni and Sara Colantonio},
-      year={2023},
-      eprint={2309.10399},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{carloni2024exploiting,
+  title={Exploiting causality signals in medical images: A pilot study with empirical results},
+  author={Carloni, Gianluca and Colantonio, Sara},
+  journal={Expert Systems with Applications},
+  pages={123433},
+  year={2024},
+  publisher={Elsevier}
 }
 ```
